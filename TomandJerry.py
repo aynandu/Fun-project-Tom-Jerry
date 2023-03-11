@@ -1,3 +1,6 @@
+score=0
+wicket=0
+no_of_balls=6
 import random
 class game():
    pass 
@@ -6,6 +9,7 @@ class content():
     print ("Tom & Jerry - Ver 1.0")
 
 class toss():
+    
     print("Choose \"1\" for Head , \"2\" for Tail")
     def __init__(self,choose):
         self.choose=choose
@@ -48,23 +52,22 @@ class Computer_Player():
     pass
 
 class batting():
-    def __init__(self,score,no_of_balls,wickets):
-       self.no_of_balls= no_of_balls = 6
-       self.score=score=0
-       self.wicket = wickets= 0
-       
-    def batting_card(self):
+    
+    def __init__(self):
+       global score
+       global wicket
+       global no_of_balls
        values = (1,2,3,4,5,6)
        i =0
-       while self.wicket<2 and  i < self.no_of_balls:
+       while  wicket<2 and  i < no_of_balls:
             Batting_value =  int(input("enter value btw 6 : "))
             computer_value = random.choice(values)
             if Batting_value in values :
                 if Batting_value!= computer_value:
                     temp = Batting_value 
-                    self.score+=temp
-                    print(f'runs : {self.score}/{self.wicket} , balls {i}')
-                   
+                    score+=temp
+                    #print(f'runs : {score}/{wicket} , balls {i}')
+                    scoreboard()
                 else:
                     wicket +=1
                     print("wicket!")
@@ -73,16 +76,17 @@ class batting():
                 
                 print("out of range")
             i+=1
-            return self.score
+               
 
 class bowling():
      pass
 
 
 class scoreboard(batting):
-    def __init__(self,score1):
-        self.score1=batting
-        print()
+    def __init__(self,):
+        global score
+        global wicket
+        print(f'Runs :{score} / {wicket},')
         
 
 class fall_of_wickets():
